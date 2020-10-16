@@ -48,17 +48,20 @@ namespace GreatestAndSecondGreatestNumber
             //funkcija ce se rekurzivno pozivati dok se niz ne svede na 2 elementa
             (int, int) indeksiNajvecih = LargestAndSecondLargest(najveciIzParova);
 
+            //odredimo je li item bio zamijenjen u prethodnom nizu
             int najveciZamijenjen = jeLiZamijenjeno[indeksiNajvecih.Item1];
             int drugiNajveciZamijenjen = jeLiZamijenjeno[indeksiNajvecih.Item2];
 
+            //racunamo indeks u prethodnom nizu
             int indeksNajveceg = 2 * indeksiNajvecih.Item1;
             int indeksDrugogNajveceg = 2 * indeksiNajvecih.Item2;
+            //provjeravamo je li item koji je bio u paru s najvecim, veci od drugog najveceg
             if (niz[indeksNajveceg + 1] > niz[indeksDrugogNajveceg])
             {
                 indeksDrugogNajveceg = indeksNajveceg + 1;
                 drugiNajveciZamijenjen = 0 - najveciZamijenjen;
             }
-
+            //vracamo vrijednosti indeksa u orethodnom nizu s obzirom na zamjene
             return (indeksNajveceg + najveciZamijenjen, indeksDrugogNajveceg + drugiNajveciZamijenjen);
 
         }
